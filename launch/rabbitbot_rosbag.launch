@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <rosparam command="load" file="$(find rabbitbot_core)/launch/RabbitParameters.yaml" />
+  <param name="robot_description" command="cat $(find rabbitbot_core)/robot_description/rabbitbot.urdf" />
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+
+  <arg name="rvizconfig" default="$(find rabbitbot_remote)/config/rabbitbot.rviz" />  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
